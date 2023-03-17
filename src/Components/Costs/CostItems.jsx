@@ -1,24 +1,28 @@
 import "./CostItems.css";
 import CostItem from "./CostItem";
-
+import CostsFilter from "./CostsFilter/CostsFilter.jsx";
+import { useState } from "react";
 function CostItems(props) {
+  const [selectedYear, setSelectedYear] = useState("2023");
+  const getYearValue = (year) => {
+    setSelectedYear(year);
+    console.log(year);
+  };
+
   return (
-    <div className="costs">
-      <CostItem
-        date={props.items[0].date}
-        descriptions={props.items[0].description}
-        amount={props.items[0].amount}
-      />
-      <CostItem
-        date={props.items[1].date}
-        descriptions={props.items[1].description}
-        amount={props.items[1].amount}
-      />
-      <CostItem
-        date={props.items[2].date}
-        descriptions={props.items[2].description}
-        amount={props.items[2].amount}
-      />
+    <div>
+      <div className="costs">
+        <CostsFilter selectedYear={selectedYear} getYearValue={getYearValue} />
+        {props.items.map((element) => {
+          return (
+            <CostItem
+              date={element.date}
+              descriptions={element.description}
+              amount={element.amount}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./CostForm.css";
 
-const CostForm = () => {
+const CostForm = (props) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [date, setDate] = useState("");
@@ -17,20 +17,19 @@ const CostForm = () => {
   const dateEventListener = (event) => {
     setDate(event.target.value);
   };
-  const arr = [];
   const submitHandler = (event) => {
     event.preventDefault();
     const costData = {
-      name: name,
-      number: number,
-      date: date,
+      date: new Date(date),
+      description: name,
+      amount: number,
     };
-    console.log(costData);
-    arr.push(costData);
+    props.addCostHandler(costData);
+
     setName((event.target.value = ""));
     setNumber((event.target.value = ""));
     setDate((event.target.value = ""));
-    console.log(arr);
+    console.log(costData);
   };
 
   return (

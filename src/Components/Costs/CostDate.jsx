@@ -3,8 +3,12 @@ import "./CostDate.css";
 function CostDate(props) {
   //const date = new Date();
 
-  const day = props.date.toLocaleString("uk-UA", { day: "2-digit" });
-  const mounth = props.date.toLocaleString("uk-UA", { month: "long" });
+  const day = props.date.toLocaleString("uk-UA", {
+    day: "2-digit",
+  });
+  const mounth = props.date.toLocaleString("uk-UA", {
+    month: "long",
+  });
   const year = props.date.getFullYear();
   return (
     <div className="cost-date">
