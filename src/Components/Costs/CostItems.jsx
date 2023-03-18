@@ -9,19 +9,27 @@ function CostItems(props) {
     console.log(year);
   };
 
+  const listItems = props.items.filter((element) => {
+    return element.date.getFullYear().toString() === selectedYear;
+  });
   return (
     <div>
       <div className="costs">
         <CostsFilter selectedYear={selectedYear} getYearValue={getYearValue} />
-        {props.items.map((element) => {
-          return (
-            <CostItem
-              date={element.date}
-              descriptions={element.description}
-              amount={element.amount}
-            />
-          );
-        })}
+        {listItems.length === 0 ? (
+          <p className="empty-year">В вибраному вами році немає витрат!</p>
+        ) : (
+          listItems.map((element) => {
+            return (
+              <CostItem
+                key={element.id}
+                date={element.date}
+                descriptions={element.description}
+                amount={element.amount}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );

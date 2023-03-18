@@ -4,19 +4,23 @@ import CostItems from "./Components/Costs/CostItems";
 import NewCost from "./Components/NewCost/NewCost";
 const items = [
   {
-    date: new Date(2023, 0, 12),
-    description: "Телефон",
-    amount: 319.99,
+    id: 1,
+    date: new Date(2023, 2, 10),
+    description: "Кросівки",
+    amount: 34.99,
   },
+
   {
+    id: 2,
     date: new Date(2023, 1, 4),
     description: "Куртка",
     amount: 49.99,
   },
   {
-    date: new Date(2023, 2, 10),
-    description: "Кросівки",
-    amount: 34.99,
+    id: 3,
+    date: new Date(2023, 0, 12),
+    description: "Телефон",
+    amount: 319.99,
   },
 ];
 function App() {
@@ -24,7 +28,7 @@ function App() {
 
   const addCostHandler = (costData) => {
     setUpdateItems((prevItems) => {
-      return [...prevItems, costData];
+      return [costData, ...prevItems];
     });
     console.log(updateItems);
     console.log(items);
