@@ -57,7 +57,9 @@ const CostForm = (props) => {
           <input type="date" value={date} onChange={dateEventListener} />
           <div className="new-cost__actions">
             <button type="submit">Добавити розрахунок</button>
-            <button type="submit">Відміна</button>
+            <button type="button" onClick={checkForm}>
+              Відміна
+            </button>
           </div>
         </div>
       ) : (

@@ -22,6 +22,30 @@ const items = [
     description: "Телефон",
     amount: 319.99,
   },
+  {
+    id: 4,
+    date: new Date(2022, 3, 15),
+    description: "Автомобіль",
+    amount: 1299.99,
+  },
+  {
+    id: 5,
+    date: new Date(2021, 4, 10),
+    description: "Скутер",
+    amount: 249.99,
+  },
+  {
+    id: 6,
+    date: new Date(2021, 6, 10),
+    description: "Ноутбук",
+    amount: 999.99,
+  },
+  {
+    id: 7,
+    date: new Date(2020, 1, 10),
+    description: "Комп'ютер",
+    amount: 599.99,
+  },
 ];
 function App() {
   const [updateItems, setUpdateItems] = useState(items);
